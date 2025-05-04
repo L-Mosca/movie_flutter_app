@@ -18,6 +18,15 @@ class PtBr extends AppLocalization {
   @override String get emptyName => "Preencha o nome";
   @override String get emptyEmail => "Preencha o e-mail";
   @override String get invalidEmail => "E-mail inválido";
-  @override String get emptyPassword => "Preencha os campos de senha";
+  @override String get emptyPasswords => "Preencha os campos de senha";
   @override String get invalidPassword => "Senhas inválidas";
+
+  // Login Page
+  @override String get signInToContinue => "Entre para continuar";
+  @override String get dontHaveAccount => "Não tem uma conta?";
+  @override String get loginError => "Erro ao realizar login";
+  @override String get emptyPassword => "Digite uma senha";
+  @override String get loginSuccess => "Login realizado com sucesso";
+  @override String get or => "Ou";
+  @override String get login => "Entrar";
 }

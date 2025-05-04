@@ -18,6 +18,15 @@ class EnUs extends AppLocalization {
   @override String get emptyName => "Enter your name";
   @override String get emptyEmail => "Enter your email";
   @override String get invalidEmail => "Invalid email";
-  @override String get emptyPassword => "Fill in the password fields";
+  @override String get emptyPasswords => "Fill in the password fields";
   @override String get invalidPassword => "Invalid passwords";
+
+  // Login page
+  @override String get signInToContinue => "Sign in to continue";
+  @override String get dontHaveAccount => "Don't have an account?";
+  @override String get loginError => "Error while logging in";
+  @override String get emptyPassword => "Enter a password";
+  @override String get loginSuccess => "Login successful";
+  @override String get or => "Or";
+  @override String get login => "Login";
 }
