@@ -25,4 +25,6 @@ abstract class AppLocalization {
   String get loginError;
   String get emptyPassword;
   String get loginSuccess;
+  String get or;
+  String get login;
 }

@@ -27,5 +27,6 @@ class EnUs extends AppLocalization {
   @override String get loginError => "Error while logging in";
   @override String get emptyPassword => "Enter a password";
   @override String get loginSuccess => "Login successful";
-
+  @override String get or => "Or";
+  @override String get login => "Login";
 }

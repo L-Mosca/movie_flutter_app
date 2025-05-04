@@ -27,5 +27,6 @@ class PtBr extends AppLocalization {
   @override String get loginError => "Erro ao realizar login";
   @override String get emptyPassword => "Digite uma senha";
   @override String get loginSuccess => "Login realizado com sucesso";
-
+  @override String get or => "Ou";
+  @override String get login => "Entrar";
 }

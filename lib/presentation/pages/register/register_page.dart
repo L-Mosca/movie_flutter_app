@@ -100,7 +100,7 @@ class RegisterPage extends StatelessWidget {
 
   void _showLoginPage(BuildContext context) {
     DeviceUtils.hideKeyboard(context);
-    Navigator.pushNamed(context, AppRouter.loginRoute);
+    Navigator.pop(context);
   }
 
   void _showInvalidDataMessage(BuildContext context, RegisterState state) {
@@ -122,8 +122,12 @@ class RegisterPage extends StatelessWidget {
 
   void _registerSuccess(BuildContext context, RegisterState state) {
     if (state.listener == RegisterListener.registerSuccess) {
-      context.showShortSnackBar(message: context.strings.registerError);
-      Navigator.pop(context);
+      context.showShortSnackBar(message: context.strings.registerSuccess);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AppRouter.homeRoute,
+        ModalRoute.withName(AppRouter.homeRoute),
+      );
       context.read<RegisterBloc>().add(RegisterResetListener());
     }
   }
