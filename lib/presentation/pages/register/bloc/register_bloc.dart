@@ -2,13 +2,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_flutter_app/base/state_management/base_bloc.dart';
 import 'package:movie_flutter_app/domain/models/user/register_body.dart';
 import 'package:movie_flutter_app/domain/repositories/user_repository/user_repository.dart';
+import 'package:movie_flutter_app/domain/validators/register_validator.dart';
 import 'package:movie_flutter_app/presentation/pages/register/bloc/register_event.dart';
 import 'package:movie_flutter_app/presentation/pages/register/bloc/register_state.dart';
 
 class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
   final UserRepository userRepository;
+  final RegisterValidator registerValidator;
 
-  RegisterBloc({required this.userRepository}) : super(const RegisterState()) {
+  RegisterBloc({required this.userRepository, required this.registerValidator})
+    : super(const RegisterState()) {
     on<RegisterInitEvent>(_init);
     on<RegisterUpdateDataEvent>(_updateData);
     on<RegisterSignUpEvent>(_signUp);
@@ -35,8 +38,22 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
     Emitter<RegisterState> emitter,
   ) async {
     await defaultLaunch(
-      function: () async {},
-      loadingStatus: (isLoading) => emitter(state.isLoading(isLoading)),
+      function: () async {
+        final body = state.body;
+        final errorCode = registerValidator.validateRegisterFields(body: body);
+
+        if (errorCode != null) {
+          print("ERRO RETORNADO: $errorCode");
+          return;
+        } else {
+          print("SUCESSO");
+          await userRepository.signUp(body: body!);
+        }
+      },
+      loadingStatus: (isLoading) {
+        print("ESTA CARREGANDO: $isLoading");
+        emitter(state.isLoading(isLoading));
+      },
       exceptionHandler: (exception) => emitter(state.registerError),
     );
   }

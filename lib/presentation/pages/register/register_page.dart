@@ -44,7 +44,7 @@ class RegisterPage extends StatelessWidget {
                   RegisterFields(
                     updateData: (data) => _updateFieldsData(context, data),
                     onChangeVisibilityPressed: () => _updateVisibility(context),
-                    onSubmitted: () => _onSubmitted(context),
+                    onSubmitted: () => _onSignUpPressed(context),
                     body: state.body,
                     obscureText: state.obscureText,
                   ),
@@ -54,9 +54,11 @@ class RegisterPage extends StatelessWidget {
                 onPressed: () => _onSignUpPressed(context),
                 showLoading: state.showLoading,
               ),
+              if (!state.showLoading)
               RegisterHasAccountText(
                 onClickHerePressed: () => _showLoginPage(context),
               ),
+              const SizedBox(height: Dimensions.marginMedium),
             ],
           ),
         ),
@@ -79,11 +81,6 @@ class RegisterPage extends StatelessWidget {
 
   void _updateVisibility(BuildContext context) {
     context.read<RegisterBloc>().add(RegisterChangePasswordVisibilityEvent());
-  }
-
-  void _onSubmitted(BuildContext context) {
-    DeviceUtils.hideKeyboard(context);
-    context.read<RegisterBloc>().add(RegisterSignUpEvent());
   }
 
   void _onSignUpPressed(BuildContext context) {
