@@ -29,4 +29,15 @@ class EnUs extends AppLocalization {
   @override String get loginSuccess => "Login successful";
   @override String get or => "Or";
   @override String get login => "Login";
+
+  // Settings Page
+  @override String get settings => "Settings";
+  @override String get useAllAppFeatures => "Log in to access all app features";
+  @override String get useTerms => "Terms of Use";
+  @override String get privacyPolicies => "Privacy Policies";
+  @override String get portuguese => "Portuguese (Brazil)";
+  @override String get english => "English";
+  @override String get exit => "Log Out";
+  @override String get wouldLikeToExit => "Do you want to log out of the app?";
+
 }

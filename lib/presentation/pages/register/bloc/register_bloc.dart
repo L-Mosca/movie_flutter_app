@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_flutter_app/base/state_management/base_bloc.dart';
 import 'package:movie_flutter_app/domain/models/user/register_body.dart';
+import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 import 'package:movie_flutter_app/domain/repositories/user_repository/user_repository.dart';
 import 'package:movie_flutter_app/domain/validators/register/register_validator.dart';
 import 'package:movie_flutter_app/presentation/pages/register/bloc/register_event.dart';
@@ -47,6 +48,7 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
           return;
         } else {
           await userRepository.signUp(body: body!);
+          await userRepository.saveUser(user: UserData.buildDefault());
           emitter(state.registerSuccess);
         }
       },

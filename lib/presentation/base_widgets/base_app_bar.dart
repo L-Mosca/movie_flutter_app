@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_flutter_app/base/providers/color_token_provider.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_text.dart';
-import 'package:movie_flutter_app/utils/constants/colors.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -24,9 +23,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       title: _title(),
       scrolledUnderElevation: 0.0,
-      elevation: 0.0,
+      elevation: 10.0,
       leading: _backButton(context),
       titleSpacing: 0.0,
+      shadowColor: context.colors.shadow,
     );
   }
 
@@ -35,8 +35,8 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       margin: EdgeInsets.only(right: Dimensions.marginSmall),
       child: BaseText(
         text: title,
-        fontWeight: FontWeight.w700,
-        fontSize: Dimensions.fontLarge,
+        fontWeight: FontWeight.w600,
+        fontSize: Dimensions.fontExtraLarge,
       ),
     );
   }
@@ -46,10 +46,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       color: context.colors.background,
       child: GestureDetector(
         onTap: onBackPressed,
-        child: const Icon(
+        child: Icon(
           Icons.arrow_back_ios_rounded,
-          size: 24,
-          color: AppColors.blueDark400,
+          size: 30,
+          color: context.colors.accent,
         ),
       ),
     );

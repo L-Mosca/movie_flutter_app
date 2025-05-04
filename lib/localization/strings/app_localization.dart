@@ -27,4 +27,14 @@ abstract class AppLocalization {
   String get loginSuccess;
   String get or;
   String get login;
+
+  // Settings Page
+  String get settings;
+  String get useAllAppFeatures;
+  String get useTerms;
+  String get privacyPolicies;
+  String get portuguese;
+  String get english;
+  String get exit;
+  String get wouldLikeToExit;
 }

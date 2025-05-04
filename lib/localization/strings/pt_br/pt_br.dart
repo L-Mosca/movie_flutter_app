@@ -29,4 +29,14 @@ class PtBr extends AppLocalization {
   @override String get loginSuccess => "Login realizado com sucesso";
   @override String get or => "Ou";
   @override String get login => "Entrar";
+
+  // Settings Page
+  @override String get settings => "Configurações";
+  @override String get useAllAppFeatures => "Faça login para utilizar todos os recursos do app";
+  @override String get useTerms => "Termos de uso";
+  @override String get privacyPolicies => "Políticas de privacidade";
+  @override String get portuguese => "Português (Brasil)";
+  @override String get english => "Inglês";
+  @override String get exit => "Sair";
+  @override String get wouldLikeToExit => "Deseja sair do App?";
 }
