@@ -13,9 +13,10 @@ import '../presentation/theme/colors/color_tokens.dart'
     show DarkColorToken, LightColorToken;
 
 class App extends StatefulWidget {
-  const App({super.key, required this.isDarkMode});
+  const App({super.key, required this.isDarkMode, required this.locale});
 
   final bool isDarkMode;
+  final Locale locale;
 
   @override
   State<App> createState() => _AppState();
@@ -31,6 +32,7 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
+    _locale = widget.locale;
     _themeMode = widget.isDarkMode ? ThemeMode.dark : ThemeMode.light;
     super.initState();
   }
