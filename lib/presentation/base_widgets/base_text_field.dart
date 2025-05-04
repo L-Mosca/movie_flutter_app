@@ -142,7 +142,7 @@ class _BaseTextFieldState extends State<BaseTextField> {
     return textStyle?.copyWith(
       decoration: widget.decoration,
       decorationColor: _fontColor(isDarkMode),
-      fontSize: widget.fontSize,
+      fontSize: widget.fontSize ?? Dimensions.fontMedium,
       color: _fontColor(isDarkMode),
       fontWeight: widget.fontWeight ?? FontWeight.w500,
       height: widget.height,
