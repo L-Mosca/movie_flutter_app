@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_flutter_app/base/state_management/base_bloc.dart';
 import 'package:movie_flutter_app/domain/models/user/login_body.dart';
+import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 import 'package:movie_flutter_app/domain/repositories/user_repository/user_repository.dart';
 import 'package:movie_flutter_app/domain/validators/login/login_validator.dart';
 import 'package:movie_flutter_app/presentation/pages/login/bloc/login_event.dart';
@@ -42,6 +43,7 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
           return;
         } else {
           await userRepository.login(body: body!);
+          await userRepository.saveUser(user: UserData.buildDefault());
           emitter(state.loginSuccess);
         }
       },
