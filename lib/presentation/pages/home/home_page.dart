@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
   Widget _builder(BuildContext context, HomeState state) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRouter.loginRoute);
+        Navigator.pushNamed(context, AppRouter.settingsRoute);
       },
       child: Container(width: 400.0, height: 400.0, color: Colors.red),
     );
