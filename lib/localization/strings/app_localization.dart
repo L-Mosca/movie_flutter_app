@@ -16,6 +16,13 @@ abstract class AppLocalization {
   String get emptyName;
   String get emptyEmail;
   String get invalidEmail;
-  String get emptyPassword;
+  String get emptyPasswords;
   String get invalidPassword;
+
+  // Login Page
+  String get signInToContinue;
+  String get dontHaveAccount;
+  String get loginError;
+  String get emptyPassword;
+  String get loginSuccess;
 }

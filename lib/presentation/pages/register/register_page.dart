@@ -12,6 +12,7 @@ import 'package:movie_flutter_app/presentation/pages/register/widgets/text_field
 import 'package:movie_flutter_app/presentation/pages/register/widgets/top_header/register_icon.dart';
 import 'package:movie_flutter_app/presentation/pages/register/widgets/top_header/register_subtitle.dart';
 import 'package:movie_flutter_app/presentation/pages/register/widgets/top_header/register_title.dart';
+import 'package:movie_flutter_app/router/app_router.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
 import 'package:movie_flutter_app/utils/device_utils/device_utils.dart';
 import 'package:movie_flutter_app/utils/extensions/device_extensions.dart';
@@ -35,37 +36,40 @@ class RegisterPage extends StatelessWidget {
 
   Widget _builder(BuildContext context, RegisterState state) {
     return Scaffold(
-      body: GestureDetector(
-        onTap: () => DeviceUtils.hideKeyboard(context),
-        child: Container(
-          margin: _margin,
-          width: double.infinity,
-          child: Column(
-            children: [
-              _expandedScrollView(
-                children: [
-                  RegisterIcon(),
-                  RegisterTitle(),
-                  RegisterSubtitle(),
-                  RegisterFields(
-                    updateData: (data) => _updateFieldsData(context, data),
-                    onChangeVisibilityPressed: () => _updateVisibility(context),
-                    onSubmitted: () => _onSignUpPressed(context),
-                    body: state.body,
-                    obscureText: state.obscureText,
-                  ),
-                ],
-              ),
-              RegisterButton(
-                onPressed: () => _onSignUpPressed(context),
-                showLoading: state.showLoading,
-              ),
-              if (!state.showLoading)
-                RegisterHasAccountText(
-                  onClickHerePressed: () => _showLoginPage(context),
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () => DeviceUtils.hideKeyboard(context),
+          child: Container(
+            margin: _margin,
+            width: double.infinity,
+            child: Column(
+              children: [
+                _expandedScrollView(
+                  children: [
+                    RegisterIcon(),
+                    RegisterTitle(),
+                    RegisterSubtitle(),
+                    RegisterFields(
+                      updateData: (data) => _updateFieldsData(context, data),
+                      onChangeVisibilityPressed:
+                          () => _updateVisibility(context),
+                      onSubmitted: () => _onSignUpPressed(context),
+                      body: state.body,
+                      obscureText: state.obscureText,
+                    ),
+                  ],
                 ),
-              const SizedBox(height: Dimensions.marginMedium),
-            ],
+                RegisterButton(
+                  onPressed: () => _onSignUpPressed(context),
+                  showLoading: state.showLoading,
+                ),
+                if (!state.showLoading)
+                  RegisterHasAccountText(
+                    onClickHerePressed: () => _showLoginPage(context),
+                  ),
+                const SizedBox(height: Dimensions.marginMedium),
+              ],
+            ),
           ),
         ),
       ),
@@ -96,8 +100,7 @@ class RegisterPage extends StatelessWidget {
 
   void _showLoginPage(BuildContext context) {
     DeviceUtils.hideKeyboard(context);
-    // TODO insert login route here
-    //Navigator.pushNamed(context, "AppRouter.loginRoute");
+    Navigator.pushNamed(context, AppRouter.loginRoute);
   }
 
   void _showInvalidDataMessage(BuildContext context, RegisterState state) {

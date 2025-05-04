@@ -1,5 +1,5 @@
 import 'package:movie_flutter_app/domain/models/user/register_body.dart';
-import 'package:movie_flutter_app/domain/validators/register_validator.dart';
+import 'package:movie_flutter_app/domain/validators/register/register_validator.dart';
 import 'package:movie_flutter_app/utils/constants/app_constants.dart';
 
 class RegisterValidatorImpl implements RegisterValidator {

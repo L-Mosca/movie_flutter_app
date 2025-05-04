@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie_flutter_app/domain/validators/register_validator_impl.dart';
+import 'package:movie_flutter_app/domain/validators/register/register_validator_impl.dart';
 import 'package:movie_flutter_app/localization/delegate/localization_extensions.dart';
 
 class RegisterBody {
@@ -41,9 +41,9 @@ extension RegisterBodyExtensions on RegisterBody? {
       case RegisterValidatorImpl.invalidEmail:
         return context.strings.invalidEmail;
       case RegisterValidatorImpl.emptyPassword:
-        return context.strings.emptyPassword;
+        return context.strings.emptyPasswords;
       case RegisterValidatorImpl.emptyConfirmPassword:
-        return context.strings.emptyPassword;
+        return context.strings.emptyPasswords;
       case RegisterValidatorImpl.invalidPassword:
         return context.strings.invalidPassword;
       default:
