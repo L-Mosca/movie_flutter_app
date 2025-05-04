@@ -1,3 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:movie_flutter_app/domain/validators/register_validator_impl.dart';
+import 'package:movie_flutter_app/localization/delegate/localization_extensions.dart';
+
 class RegisterBody {
   String? name;
   String? email;
@@ -24,5 +28,26 @@ class RegisterBody {
       password: newData.password ?? password,
       confirmPassword: newData.confirmPassword ?? confirmPassword,
     );
+  }
+}
+
+extension RegisterBodyExtensions on RegisterBody? {
+  String getErrorMessage(BuildContext context, int errorCode) {
+    switch (errorCode) {
+      case RegisterValidatorImpl.emptyName:
+        return context.strings.emptyName;
+      case RegisterValidatorImpl.emptyEmail:
+        return context.strings.emptyEmail;
+      case RegisterValidatorImpl.invalidEmail:
+        return context.strings.invalidEmail;
+      case RegisterValidatorImpl.emptyPassword:
+        return context.strings.emptyPassword;
+      case RegisterValidatorImpl.emptyConfirmPassword:
+        return context.strings.emptyPassword;
+      case RegisterValidatorImpl.invalidPassword:
+        return context.strings.invalidPassword;
+      default:
+        return context.strings.emptyName;
+    }
   }
 }

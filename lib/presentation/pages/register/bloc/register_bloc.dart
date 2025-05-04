@@ -43,17 +43,14 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
         final errorCode = registerValidator.validateRegisterFields(body: body);
 
         if (errorCode != null) {
-          print("ERRO RETORNADO: $errorCode");
+          emitter(state.showErrorMessage(errorCode));
           return;
         } else {
-          print("SUCESSO");
           await userRepository.signUp(body: body!);
+          emitter(state.registerSuccess);
         }
       },
-      loadingStatus: (isLoading) {
-        print("ESTA CARREGANDO: $isLoading");
-        emitter(state.isLoading(isLoading));
-      },
+      loadingStatus: (isLoading) => emitter(state.isLoading(isLoading)),
       exceptionHandler: (exception) => emitter(state.registerError),
     );
   }
