@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:movie_flutter_app/router/routes/home/home_router.dart';
 import 'package:movie_flutter_app/router/routes/splash/splash_router.dart';
 import 'package:movie_flutter_app/utils/constants/app_constants.dart';
 
@@ -7,6 +8,7 @@ enum RouteAnimation { rightToLeft, fade, scale }
 class AppRouter {
   // Routes constants
   static const splashRoute = "/";
+  static const homeRoute = "/home";
 
   static Route<dynamic>? onGenerateRoute(
     RouteSettings settings,
@@ -15,6 +17,8 @@ class AppRouter {
     switch (settings.name) {
       case splashRoute:
         return _buildPageWithAnimation(SplashRouter.page);
+      case homeRoute:
+        return _buildPageWithAnimation(HomeRouter.page);
       default:
         return null;
     }
