@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:movie_flutter_app/di/modules/data_modules.dart';
+import 'package:movie_flutter_app/di/modules/helper_modules.dart';
 import 'package:movie_flutter_app/di/modules/repository_modules.dart';
 
 /// Classe para componentização do sistema de injeção de dependências do app
@@ -27,6 +28,7 @@ class _GetItImpl implements Injector {
   Future<void> initialize() async {
     await DataModules.setup(getIt);
     RepositoryModules.setup(getIt);
+    HelperModules.setup(getIt);
   }
 
   @override

@@ -13,6 +13,8 @@ class Dimensions {
   static const double fontSmall = 14.0;
   static const double fontMedium = 16.0;
   static const double fontLarge = 18.0;
+  static const double fontExtraLarge = 22.0;
+  static const double fontExtraBigLarge = 24.0;
 
   // Border Radius
   static const double radiusMini = 8.0;
