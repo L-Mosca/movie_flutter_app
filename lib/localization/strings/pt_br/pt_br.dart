@@ -32,7 +32,7 @@ class PtBr extends AppLocalization {
 
   // Settings Page
   @override String get settings => "Configurações";
-  @override String get useAppAppFeatures => "Faça login para utilizar todos os recursos do app";
+  @override String get useAllAppFeatures => "Faça login para utilizar todos os recursos do app";
   @override String get useTerms => "Termos de uso";
   @override String get privacyPolicies => "Políticas de privacidade";
   @override String get portuguese => "Português (Brasil)";

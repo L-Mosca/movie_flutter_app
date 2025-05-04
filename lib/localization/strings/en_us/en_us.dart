@@ -32,7 +32,7 @@ class EnUs extends AppLocalization {
 
   // Settings Page
   @override String get settings => "Settings";
-  @override String get useAppAppFeatures => "Log in to access all app features";
+  @override String get useAllAppFeatures => "Log in to access all app features";
   @override String get useTerms => "Terms of Use";
   @override String get privacyPolicies => "Privacy Policies";
   @override String get portuguese => "Portuguese (Brazil)";

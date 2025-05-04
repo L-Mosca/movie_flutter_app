@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:movie_flutter_app/data/local/shared_preferences/preferences_helper.dart';
+import 'package:movie_flutter_app/domain/models/settings/app_locale.dart';
 import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,16 +38,16 @@ class PreferencesHelperImpl implements PreferencesHelper {
   }
 
   @override
-  Future<void> saveLocale({required String languageCode}) async {
-    await _setString(key: _localeKey, value: languageCode);
+  Future<void> saveLocale({required AppLocale locale}) async {
+    await _setString(key: _localeKey, value: jsonEncode(locale.toJson()));
   }
 
   @override
-  Future<Locale?> getLocale() async {
-    final languageCode = await _getString(key: _localeKey);
-    if (languageCode == null || languageCode.isEmpty) return null;
+  Future<AppLocale?> getLocale() async {
+    final raw = await _getString(key: _localeKey);
+    if (raw == null || raw.isEmpty) return null;
 
-    return Locale(languageCode);
+    return AppLocale.fromJson(jsonDecode(raw));
   }
 
   /*Future<void> _setInt({required String key, required int? value}) async {

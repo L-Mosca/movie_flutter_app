@@ -12,6 +12,17 @@ class AppLocale {
   String toString() {
     return 'AppLocale{country: $country, languageCode: $languageCode}';
   }
+
+  AppLocale.fromJson(Map<String, dynamic> json)
+    : country = json["country"],
+      languageCode = json["languageCode"];
+
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic> {};
+    data["country"] = country;
+    data["languageCode"] = languageCode;
+    return data;
+  }
 }
 
 extension AppLocaleExtensions on BuildContext {
@@ -26,5 +37,15 @@ extension AppLocaleExtensions on BuildContext {
         languageCode: AppConstants.portugueseCode,
       ),
     ];
+  }
+}
+
+extension LanguageCodeExtensions on String {
+  String getLanguage(BuildContext context) {
+    switch(this) {
+      case AppConstants.portugueseCode : return context.strings.portuguese;
+      case AppConstants.englishCode : return context.strings.english;
+      default: return context.strings.portuguese;
+    }
   }
 }

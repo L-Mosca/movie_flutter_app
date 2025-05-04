@@ -96,4 +96,5 @@ class AppColors {
 
   // Custom Colors
   static const Color amber = Color(0xFFFFC107);
+  static const Color green = Color(0xFF1AC021);
 }

@@ -18,7 +18,7 @@ class BaseImageNetwork extends StatelessWidget {
   });
 
   final String? imageUrl;
-  final String? errorPlaceHolder;
+  final Widget? errorPlaceHolder;
   final Widget? customLoading;
   final BorderRadiusGeometry? borderRadius;
   final double? height;
@@ -42,6 +42,8 @@ class BaseImageNetwork extends StatelessWidget {
 
   Widget _buildImage() {
     return Image.network(
+      width: width,
+      height: height,
       imageUrl ?? "",
       fit: fit ?? BoxFit.cover,
       filterQuality: filterQuality ?? FilterQuality.high,
@@ -52,7 +54,7 @@ class BaseImageNetwork extends StatelessWidget {
       },
       errorBuilder: (context, error, stackTrace) {
         if (errorPlaceHolder != null) {
-          return Image.asset(errorPlaceHolder!, fit: BoxFit.cover);
+          return errorPlaceHolder!;
         }
 
         return const SizedBox();
@@ -61,10 +63,12 @@ class BaseImageNetwork extends StatelessWidget {
   }
 
   Widget _showDefaultLoading() => Container(
-        padding: const EdgeInsets.all(Dimensions.marginExtraLarge),
-        child: CircularProgressIndicator(
-          color: AppColors.accentLight,
-          strokeWidth: 4.0,
-        ),
-      );
+    padding: const EdgeInsets.all(Dimensions.marginExtraLarge),
+    child: Center(
+      child: CircularProgressIndicator(
+        color: AppColors.accentLight,
+        strokeWidth: 4.0,
+      ),
+    ),
+  );
 }

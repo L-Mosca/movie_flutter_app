@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_flutter_app/domain/models/settings/app_locale.dart';
 import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 
 abstract interface class PreferencesHelper {
@@ -8,6 +9,6 @@ abstract interface class PreferencesHelper {
   Future<void> logout();
 
   // Locale
-  Future<void> saveLocale({required String languageCode});
-  Future<Locale?> getLocale();
+  Future<void> saveLocale({required AppLocale locale});
+  Future<AppLocale?> getLocale();
 }

@@ -12,10 +12,10 @@ class SettingsRouter {
 
   static Widget get page => BlocProvider(
     create:
-        (_) => SettingsBloc(
+        (context) => SettingsBloc(
           settingsRepository: injector.get<SettingsRepository>(),
           userRepository: injector.get<UserRepository>(),
-        )..add(SettingsInitEvent()),
+        )..add(SettingsInitEvent(context: context)),
     child: const SettingsPage(),
   );
 }

@@ -30,7 +30,7 @@ abstract class AppLocalization {
 
   // Settings Page
   String get settings;
-  String get useAppAppFeatures;
+  String get useAllAppFeatures;
   String get useTerms;
   String get privacyPolicies;
   String get portuguese;

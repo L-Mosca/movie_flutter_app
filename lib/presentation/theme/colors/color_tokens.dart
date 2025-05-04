@@ -35,6 +35,8 @@ abstract class ColorToken {
   Color get productCardBorder;
   Color get cartSummaryText;
   Color get cartContainer;
+
+  Color get disableIcon;
 }
 
 class LightColorToken implements ColorToken {
@@ -71,6 +73,8 @@ class LightColorToken implements ColorToken {
   @override Color get productCardBorder => AppColors.gray100;
   @override Color get cartSummaryText => AppColors.gray400;
   @override Color get cartContainer => AppColors.white;
+
+  @override Color get disableIcon => AppColors.gray300;
 }
 
 class DarkColorToken implements ColorToken {
@@ -107,4 +111,6 @@ class DarkColorToken implements ColorToken {
   @override Color get productCardBorder => AppColors.blueDark600;
   @override Color get cartSummaryText => AppColors.gray200;
   @override Color get cartContainer => AppColors.blueDark700;
+
+  @override Color get disableIcon => AppColors.gray200;
 }

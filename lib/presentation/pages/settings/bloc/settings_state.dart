@@ -2,7 +2,7 @@ import 'package:movie_flutter_app/base/state_management/copyable.dart';
 import 'package:movie_flutter_app/domain/models/settings/app_locale.dart';
 import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 
-enum SettingsListener { nothing, logoutSuccess }
+enum SettingsListener { nothing, logoutSuccess, changeLocale }
 
 class SettingsState implements Copyable<SettingsState> {
   const SettingsState({
