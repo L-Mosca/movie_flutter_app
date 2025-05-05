@@ -39,4 +39,18 @@ class PtBr extends AppLocalization {
   @override String get english => "Inglês";
   @override String get exit => "Sair";
   @override String get wouldLikeToExit => "Deseja sair do App?";
+
+  // Home Page
+  @override String get searchMovie => "Buscar filme";
+  @override String get movieNotFound => "Nenhum filme encontrado";
+  @override String get nonMatchResponse => "Parece que nenhum resultado foi encontrado para:";
+  @override String get anErrorOccurred => "Ocorreu um erro";
+  @override String get fetchMovieError => "Ocorreu um erro ao tentar buscar pelos seus filmes, tente novamente mais tarde";
+  @override String get reload => "Recarregar";
+  /*String get searchMovie;
+  String get movieNotFound;
+  String get nonMatchResponse;
+  String get anErrorOccurred;
+  String get fetchMovieError;
+  String get reload;*/
 }

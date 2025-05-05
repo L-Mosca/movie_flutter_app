@@ -40,4 +40,13 @@ class EnUs extends AppLocalization {
   @override String get exit => "Log Out";
   @override String get wouldLikeToExit => "Do you want to log out of the app?";
 
+  // Home Page
+  @override String get searchMovie => "Search movie";
+  @override String get movieNotFound => "No movie found";
+  @override String get nonMatchResponse => "It looks like no results were found for:";
+  @override String get anErrorOccurred => "An error occurred";
+  @override String get fetchMovieError => "An error occurred while trying to fetch your movies. Please try again later";
+  @override String get reload => "Reload";
+
+
 }

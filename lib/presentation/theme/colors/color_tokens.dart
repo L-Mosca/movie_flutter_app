@@ -57,7 +57,7 @@ class LightColorToken implements ColorToken {
   @override Color get shimmerSecondaryColor => AppColors.shimmerSecondaryLightColor;
 
   @override Color get cardColor => AppColors.white;
-  @override Color get shadow => AppColors.black.withValues(alpha: 0.2);
+  @override Color get shadow => AppColors.black.withValues(alpha: 0.5);
 
   @override Color get star => AppColors.amber;
   @override Color get starFilled => AppColors.gray200;

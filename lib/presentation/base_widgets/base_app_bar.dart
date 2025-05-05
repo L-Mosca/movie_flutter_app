@@ -8,10 +8,16 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     required this.onBackPressed,
+    this.actions = const [],
+    this.showBackAction = true,
+    this.titleSpacing = 0.0,
   });
 
   final String title;
   final void Function() onBackPressed;
+  final List<Widget> actions;
+  final bool showBackAction;
+  final double titleSpacing;
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -25,8 +31,9 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0.0,
       elevation: 10.0,
       leading: _backButton(context),
-      titleSpacing: 0.0,
+      titleSpacing: titleSpacing,
       shadowColor: context.colors.shadow,
+      actions: actions,
     );
   }
 
@@ -41,7 +48,8 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _backButton(BuildContext context) {
+  Widget? _backButton(BuildContext context) {
+    if (!showBackAction) return null;
     return Material(
       color: context.colors.background,
       child: GestureDetector(

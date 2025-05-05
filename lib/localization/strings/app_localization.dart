@@ -37,4 +37,12 @@ abstract class AppLocalization {
   String get english;
   String get exit;
   String get wouldLikeToExit;
+
+  // Home Page
+  String get searchMovie;
+  String get movieNotFound;
+  String get nonMatchResponse;
+  String get anErrorOccurred;
+  String get fetchMovieError;
+  String get reload;
 }
