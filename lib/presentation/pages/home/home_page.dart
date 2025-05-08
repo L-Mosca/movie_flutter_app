@@ -9,6 +9,7 @@ import 'package:movie_flutter_app/presentation/pages/home/widgets/home_app_bar.d
 import 'package:movie_flutter_app/presentation/pages/home/widgets/home_floating_button.dart';
 import 'package:movie_flutter_app/presentation/pages/home/widgets/home_search_movie_text_field.dart';
 import 'package:movie_flutter_app/presentation/pages/home/widgets/movie_list/home_movie_list.dart';
+import 'package:movie_flutter_app/presentation/pages/home/widgets/movie_list/home_next_page_loading.dart';
 import 'package:movie_flutter_app/presentation/pages/home/widgets/place_holders/home_list_loading.dart';
 import 'package:movie_flutter_app/router/app_router.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
@@ -58,6 +59,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               if (state.showShimmerLoading) HomeListLoading(),
+              if (state.showNextPageLoading) HomeNextPageLoading()
             ],
           ),
         ),
@@ -99,8 +101,8 @@ class HomePage extends StatelessWidget {
 
   EdgeInsets get _margin => const EdgeInsets.only(
     top: Dimensions.marginLarge,
-    left: Dimensions.marginMedium,
-    right: Dimensions.marginMedium,
-    bottom: Dimensions.marginExtraLarge,
+    //left: Dimensions.marginMedium,
+    //right: Dimensions.marginMedium,
+    //bottom: Dimensions.marginExtraLarge,
   );
 }

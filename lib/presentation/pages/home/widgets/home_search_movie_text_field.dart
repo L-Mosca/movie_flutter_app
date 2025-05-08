@@ -3,6 +3,7 @@ import 'package:movie_flutter_app/base/providers/color_token_provider.dart';
 import 'package:movie_flutter_app/localization/delegate/localization_extensions.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_svg_icon.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_text_field.dart';
+import 'package:movie_flutter_app/utils/constants/dimensions.dart';
 import 'package:movie_flutter_app/utils/constants/icons.dart';
 
 class HomeSearchMovieTextField extends StatelessWidget {
@@ -19,15 +20,18 @@ class HomeSearchMovieTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseTextField(
-      hintText: context.strings.searchMovie,
-      text: text,
-      onTextChanged: updateFilter,
-      onSubmitted: (_) => onSubmitted(),
-      textInputAction: TextInputAction.search,
-      keyboardType: TextInputType.text,
-      prefixIcon: _prefixIcon(context),
-      maxLines: 1,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: Dimensions.marginMedium),
+      child: BaseTextField(
+        hintText: context.strings.searchMovie,
+        text: text,
+        onTextChanged: updateFilter,
+        onSubmitted: (_) => onSubmitted(),
+        textInputAction: TextInputAction.search,
+        keyboardType: TextInputType.text,
+        prefixIcon: _prefixIcon(context),
+        maxLines: 1,
+      ),
     );
   }
 

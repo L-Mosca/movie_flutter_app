@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_flutter_app/base/providers/localization_provider.dart';
+import 'package:movie_flutter_app/base/providers/theme_provider.dart';
 import 'package:movie_flutter_app/domain/models/settings/app_locale.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_page.dart';
 import 'package:movie_flutter_app/presentation/pages/settings/bloc/settings_bloc.dart';

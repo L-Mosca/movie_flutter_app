@@ -9,6 +9,11 @@ class HomeListLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(
+        top: Dimensions.marginLarge,
+        right: Dimensions.marginMedium,
+        left: Dimensions.marginMedium,
+      ),
       color: context.colors.primary,
       child: Column(
         children: [

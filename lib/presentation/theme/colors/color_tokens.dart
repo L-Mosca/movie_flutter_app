@@ -95,7 +95,7 @@ class DarkColorToken implements ColorToken {
   @override Color get shimmerSecondaryColor => AppColors.shimmerSecondaryDarkColor;
 
   @override Color get cardColor => AppColors.darkBackground;
-  @override Color get shadow => AppColors.blueDark700;
+  @override Color get shadow => AppColors.black.withValues(alpha: 0.4);
 
   @override Color get star => AppColors.amber;
   @override Color get starFilled => AppColors.blueDark600;

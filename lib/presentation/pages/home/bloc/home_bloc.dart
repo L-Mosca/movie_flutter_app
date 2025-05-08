@@ -83,6 +83,8 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   }) async {
     await defaultLaunch(
       function: () async {
+        if (page == HomeState.firstPage) emitter(state.copyWith(list: []));
+
         final size = HomeState.pageSize;
         final filter = state.filter;
 
@@ -103,7 +105,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
         emitter(state.updateList(newList, page, data.totalPages ?? 1));
       },
       exceptionHandler: (exception) => emitter(state.showError),
-      loadingStatus: (loading) => emitter(state.isLoading(loading, state.page)),
+      loadingStatus: (loading) => emitter(state.isLoading(loading, page)),
     );
   }
 }

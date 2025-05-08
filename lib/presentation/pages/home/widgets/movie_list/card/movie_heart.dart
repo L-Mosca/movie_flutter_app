@@ -16,18 +16,31 @@ class MovieHeart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onFavoritePressed,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: Dimensions.marginMedium,
-          right: Dimensions.marginMedium,
-        ),
-        child: BaseSvgIcon(
-          iconPath: AppIcons.favorite,
-          width: 26.0,
-          height: 26.0,
-          iconColor: _color,
+    return Align(
+      alignment: Alignment.topRight,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          return ScaleTransition(
+            scale: animation.drive(Tween(begin: 0.8, end: 1.0)),
+            child: FadeTransition(opacity: animation, child: child),
+          );
+        },
+        child: GestureDetector(
+          key: ValueKey<bool>(isFavorite),
+          onTap: onFavoritePressed,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: Dimensions.marginMedium,
+              right: Dimensions.marginMedium,
+            ),
+            child: BaseSvgIcon(
+              iconPath: AppIcons.favorite,
+              width: 26.0,
+              height: 26.0,
+              iconColor: _color,
+            ),
+          ),
         ),
       ),
     );

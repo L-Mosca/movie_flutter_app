@@ -3,9 +3,7 @@ import 'package:movie_flutter_app/domain/repositories/movie_repository/movie_rep
 
 class MovieRepositoryImpl implements MovieRepository {
   @override
-  Future<void> favoriteMovie({required int id}) async {
-    await Future.delayed(const Duration(seconds: 1));
-  }
+  Future<void> favoriteMovie({required int id}) async {}
 
   @override
   Future<MovieHomeResponse> getMovies({
@@ -15,7 +13,7 @@ class MovieRepositoryImpl implements MovieRepository {
   }) async {
     //final body = MovieHomeBody.buildBody(page, size, filter);
     final list = <MovieBasicData>[];
-    for (int i = 0; i <= size; i++) {
+    for (int i = 0; i < size; i++) {
       list.add(
         MovieBasicData(
           id: page + i,
@@ -37,7 +35,5 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<void> removeFavoriteMovie({required int id}) async {
-    await Future.delayed(const Duration(seconds: 1));
-  }
+  Future<void> removeFavoriteMovie({required int id}) async {}
 }

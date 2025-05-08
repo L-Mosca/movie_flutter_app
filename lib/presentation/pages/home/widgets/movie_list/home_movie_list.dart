@@ -63,6 +63,7 @@ class _HomeMovieListState extends State<HomeMovieList> {
 
     return Expanded(
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: Dimensions.marginSmall),
         color: context.colors.primary,
         child: GridView.builder(
           controller: _controller,

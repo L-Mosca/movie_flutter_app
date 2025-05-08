@@ -54,9 +54,9 @@ class HomeMovieCard extends StatelessWidget {
   }
 
   Widget _favoriteIcon() {
-    return Align(
-      alignment: Alignment.topRight,
-      child: MovieHeart(onFavoritePressed: onFavoritePressed, isFavorite: true),
+    return MovieHeart(
+      onFavoritePressed: onFavoritePressed,
+      isFavorite: movie.isFavorite ?? false,
     );
   }
 
