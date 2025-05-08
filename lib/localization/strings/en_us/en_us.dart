@@ -16,10 +16,18 @@ class EnUs extends AppLocalization {
   @override String get registerError => "An error occurred during registration";
   @override String get registerSuccess => "Registration completed successfully";
   @override String get emptyName => "Enter your name";
+  @override String get nameMinChar => "Name must be at least 3 characters long";
+  @override String get nameMaxChar => "Name must be at most 50 characters long";
   @override String get emptyEmail => "Enter your email";
   @override String get invalidEmail => "Invalid email";
   @override String get emptyPasswords => "Fill in the password fields";
   @override String get invalidPassword => "Invalid passwords";
+  @override String get eightChar => "8 characters";
+  @override String get upperLetter => "Uppercase";
+  @override String get lowerLetter => "Lowercase";
+  @override String get number => "Number";
+  @override String get special => "Special";
+  @override String get typeAllFields => "Please fill in all fields correctly";
 
   // Login page
   @override String get signInToContinue => "Sign in to continue";

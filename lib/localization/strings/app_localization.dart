@@ -14,10 +14,18 @@ abstract class AppLocalization {
   String get registerError;
   String get registerSuccess;
   String get emptyName;
+  String get nameMinChar;
+  String get nameMaxChar;
   String get emptyEmail;
   String get invalidEmail;
   String get emptyPasswords;
   String get invalidPassword;
+  String get eightChar;
+  String get upperLetter;
+  String get lowerLetter;
+  String get number;
+  String get special;
+  String get typeAllFields;
 
   // Login Page
   String get signInToContinue;

@@ -7,6 +7,7 @@ abstract class ColorToken {
   Color get accent;
   Color get text;
   Color get error;
+  Color get success;
 
   Color get border;
   Color get borderFocused;
@@ -45,6 +46,7 @@ class LightColorToken implements ColorToken {
   @override Color get background => AppColors.lightBackground;
   @override Color get text => AppColors.fontLight;
   @override Color get error => AppColors.errorLight;
+  @override Color get success => AppColors.green;
 
   @override Color get border => AppColors.borderLight;
   @override Color get borderFocused => AppColors.borderLight;
@@ -83,6 +85,7 @@ class DarkColorToken implements ColorToken {
   @override Color get background => AppColors.darkBackground;
   @override Color get text => AppColors.fontDark;
   @override Color get error => AppColors.errorDark;
+  @override Color get success => AppColors.green;
 
   @override Color get border => AppColors.borderDark;
   @override Color get borderFocused => AppColors.borderDark;

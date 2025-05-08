@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:movie_flutter_app/domain/models/settings/app_locale.dart';
 import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 

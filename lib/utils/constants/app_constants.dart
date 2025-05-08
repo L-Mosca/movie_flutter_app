@@ -16,6 +16,10 @@ class AppConstants {
   static RegExp emailRegex = RegExp(
     r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
   );
+  static RegExp lowerLetterRegex = RegExp(r"[a-z]");
+  static RegExp upperLetterRegex = RegExp(r"[A-Z]");
+  static RegExp specialCharRegex = RegExp(r"[^a-zA-Z0-9\s]");
+  static RegExp numberRegex = RegExp(r"\d");
 
   // Settings Constants
   static const String useTermsUrl = "https://pub.dev/packages/url_launcher";

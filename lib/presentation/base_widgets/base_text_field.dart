@@ -18,6 +18,7 @@ class BaseTextField extends StatefulWidget {
     this.borderWidth,
     this.keyboardType,
     this.maxLines,
+    this.maxLength,
     this.onSubmitted,
     this.controller,
     this.focusNode,
@@ -56,6 +57,7 @@ class BaseTextField extends StatefulWidget {
   final double? borderWidth;
   final TextInputType? keyboardType;
   final int? maxLines;
+  final int? maxLength;
   final void Function(String)? onSubmitted;
   final TextEditingController? controller;
   final FocusNode? focusNode;
@@ -126,6 +128,7 @@ class _BaseTextFieldState extends State<BaseTextField> {
       decoration: _hintStyle(textStyle, isDarkMode),
       onChanged: _onTextChanged,
       maxLines: widget.maxLines,
+      maxLength: widget.maxLength,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       textInputAction: widget.textInputAction ?? TextInputAction.next,
       onSubmitted: widget.onSubmitted,
