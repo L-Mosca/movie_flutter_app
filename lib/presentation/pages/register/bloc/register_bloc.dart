@@ -49,8 +49,10 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
           emitter(state.showErrorMessage(errorCode));
           return;
         } else {
-          await userRepository.signUp(body: body!);
-          await userRepository.saveUser(user: UserData.buildDefault());
+          final userToken = await userRepository.signUp(body: body!);
+          await userRepository.saveUser(
+            user: UserData.buildDefault(userToken: userToken),
+          );
           emitter(state.registerSuccess);
         }
       },

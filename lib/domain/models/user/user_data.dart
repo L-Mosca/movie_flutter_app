@@ -12,13 +12,12 @@ class UserData {
     return 'UserData{id: $id, name: $name, email: $email, token: $token, image: $image}';
   }
 
-  UserData.buildDefault() :
-    id = 1,
-    name = "Nome do Usuário",
-    email = "emaildousuario@teste.com",
-    token = "token",
-    image = "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8";
-
+  UserData.buildDefault({required String userToken})
+    : id = 1,
+      name = "Nome do Usuário",
+      email = "emaildousuario@teste.com",
+      token = userToken,
+      image = "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8";
 
   UserData.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -29,7 +28,7 @@ class UserData {
   }
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic> {};
+    final data = <String, dynamic>{};
     data["id"] = id;
     data["name"] = name;
     data["email"] = email;

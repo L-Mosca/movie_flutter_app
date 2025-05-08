@@ -15,8 +15,8 @@ class UserRepositoryImpl implements UserRepository {
   });
 
   @override
-  Future<void> signUp({required RegisterBody body}) async {
-    await Future.delayed(const Duration(seconds: 4));
+  Future<String> signUp({required RegisterBody body}) async {
+    return await clientHelper.signUp(body: body);
   }
 
   @override
