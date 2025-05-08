@@ -51,11 +51,11 @@ class RegisterPage extends StatelessWidget {
                     RegisterSubtitle(),
                     RegisterFields(
                       updateData: (data) => _updateFieldsData(context, data),
-                      onChangeVisibilityPressed:
-                          () => _updateVisibility(context),
+                      onChangeVisibilityPressed: () => _updateVisibility(context),
                       onSubmitted: () => _onSignUpPressed(context),
                       body: state.body,
                       obscureText: state.obscureText,
+                      errorList: state.errorList,
                     ),
                   ],
                 ),
@@ -105,7 +105,7 @@ class RegisterPage extends StatelessWidget {
 
   void _showInvalidDataMessage(BuildContext context, RegisterState state) {
     if (state.listener == RegisterListener.invalidData) {
-      final message = state.body.getErrorMessage(context, state.errorCode);
+      final message = state.body.getErrorMessage(context, state.errorList.first);
       context.showShortSnackBar(message: message);
 
       context.read<RegisterBloc>().add(RegisterResetListener());

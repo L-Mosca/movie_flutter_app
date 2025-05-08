@@ -23,6 +23,8 @@ class RegisterNameField extends StatelessWidget {
       onTextChanged: onChanged,
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.name,
+      maxLines: 1,
+      maxLength: 50,
       prefixIcon: IconButton(
         onPressed: null,
         icon: BaseSvgIcon(

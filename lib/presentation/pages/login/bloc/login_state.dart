@@ -31,25 +31,25 @@ class LoginState implements Copyable<LoginState> {
     LoginListener? listener,
     LoginBody? body,
     bool? showLoading,
-    int? errorCode,
+    int? errorList,
   }) {
     return LoginState(
       listener: listener ?? this.listener,
       body: body ?? this.body,
       showLoading: showLoading ?? this.showLoading,
-      errorCode: errorCode ?? this.errorCode,
+      errorCode: errorList ?? this.errorCode,
     );
   }
 
   LoginState isLoading(bool isLoading) => copyWith(showLoading: isLoading);
 
   LoginState showInvalidData(int code) =>
-      copyWith(listener: LoginListener.invalidData, errorCode: code);
+      copyWith(listener: LoginListener.invalidData, errorList: code);
 
   LoginState get loginError => copyWith(listener: LoginListener.loginError);
 
   LoginState get loginSuccess => copyWith(listener: LoginListener.loginSuccess);
 
   LoginState get resetListener =>
-      copyWith(listener: LoginListener.nothing, errorCode: -1);
+      copyWith(listener: LoginListener.nothing, errorList: -1);
 }

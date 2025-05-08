@@ -16,10 +16,18 @@ class PtBr extends AppLocalization {
   @override String get registerError => "Ocorreu um erro no cadastro";
   @override String get registerSuccess => "Cadastro realizado com sucesso";
   @override String get emptyName => "Preencha o nome";
+  @override String get nameMinChar => "Nome deve possuir pelo menos 3 caracteres";
+  @override String get nameMaxChar => "Nome deve possuir no máximo 50 caracteres";
   @override String get emptyEmail => "Preencha o e-mail";
   @override String get invalidEmail => "E-mail inválido";
   @override String get emptyPasswords => "Preencha os campos de senha";
   @override String get invalidPassword => "Senhas inválidas";
+  @override String get eightChar => "8 caracteres";
+  @override String get upperLetter => "Maiúscula";
+  @override String get lowerLetter => "Minúscula";
+  @override String get number => "Número";
+  @override String get special => "Especial";
+  @override String get typeAllFields => "Preencha todos os campos corretamente";
 
   // Login Page
   @override String get signInToContinue => "Entre para continuar";
@@ -47,10 +55,4 @@ class PtBr extends AppLocalization {
   @override String get anErrorOccurred => "Ocorreu um erro";
   @override String get fetchMovieError => "Ocorreu um erro ao tentar buscar pelos seus filmes, tente novamente mais tarde";
   @override String get reload => "Recarregar";
-  /*String get searchMovie;
-  String get movieNotFound;
-  String get nonMatchResponse;
-  String get anErrorOccurred;
-  String get fetchMovieError;
-  String get reload;*/
 }

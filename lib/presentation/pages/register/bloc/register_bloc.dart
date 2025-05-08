@@ -22,8 +22,9 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
 
   void _init(RegisterInitEvent event, Emitter<RegisterState> emitter) async {
     final newBody = RegisterBody.buildDefault();
+    final errorList = RegisterState.defaultErrorList;
 
-    emitter(state.copyWith(body: newBody));
+    emitter(state.copyWith(body: newBody, errorList: errorList));
   }
 
   void _updateData(
@@ -31,7 +32,8 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
     Emitter<RegisterState> emitter,
   ) async {
     final newData = state.body?.updateData(newData: event.body);
-    emitter(state.copyWith(body: newData));
+    final errorList = registerValidator.validateRegisterFields(body: newData);
+    emitter(state.copyWith(body: newData, errorList: errorList));
   }
 
   void _signUp(
@@ -43,12 +45,14 @@ class RegisterBloc extends BaseBloc<RegisterEvent, RegisterState> {
         final body = state.body;
         final errorCode = registerValidator.validateRegisterFields(body: body);
 
-        if (errorCode != null) {
+        if (errorCode.isNotEmpty) {
           emitter(state.showErrorMessage(errorCode));
           return;
         } else {
-          await userRepository.signUp(body: body!);
-          await userRepository.saveUser(user: UserData.buildDefault());
+          final userToken = await userRepository.signUp(body: body!);
+          await userRepository.saveUser(
+            user: UserData.buildDefault(userToken: userToken),
+          );
           emitter(state.registerSuccess);
         }
       },

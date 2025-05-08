@@ -5,7 +5,7 @@ import 'package:movie_flutter_app/domain/models/user/user_data.dart';
 abstract interface class UserRepository {
 
   // Register
-  Future<void> signUp({required RegisterBody body});
+  Future<String> signUp({required RegisterBody body});
   Future<void> login({required LoginBody body});
 
   // User Data

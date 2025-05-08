@@ -4,6 +4,7 @@ import 'package:movie_flutter_app/presentation/pages/register/widgets/text_field
 import 'package:movie_flutter_app/presentation/pages/register/widgets/text_fields/register_email_field.dart';
 import 'package:movie_flutter_app/presentation/pages/register/widgets/text_fields/register_name_field.dart';
 import 'package:movie_flutter_app/presentation/pages/register/widgets/text_fields/register_password_field.dart';
+import 'package:movie_flutter_app/presentation/pages/register/widgets/text_fields/password_summary/register_password_summary.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
 
 class RegisterFields extends StatefulWidget {
@@ -14,6 +15,7 @@ class RegisterFields extends StatefulWidget {
     required this.onSubmitted,
     required this.body,
     required this.obscureText,
+    required this.errorList,
   });
 
   final void Function(RegisterBody) updateData;
@@ -21,6 +23,7 @@ class RegisterFields extends StatefulWidget {
   final void Function() onSubmitted;
   final RegisterBody? body;
   final bool obscureText;
+  final List<int> errorList;
 
   @override
   State<RegisterFields> createState() => _RegisterFieldsState();
@@ -55,6 +58,10 @@ class _RegisterFieldsState extends State<RegisterFields> {
           password: widget.body?.confirmPassword,
           obscureText: widget.obscureText,
           focusNode: _focusNode,
+        ),
+        RegisterPasswordSummary(
+          body: widget.body,
+          errorList: widget.errorList,
         ),
         const SizedBox(height: Dimensions.marginLarge),
       ],

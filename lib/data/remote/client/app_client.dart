@@ -1,3 +1,4 @@
+import 'package:movie_flutter_app/data/remote/client/api_constants.dart';
 import 'package:movie_flutter_app/data/remote/client/base_client.dart';
 
 class AppClient extends BaseClient {
@@ -6,7 +7,7 @@ class AppClient extends BaseClient {
     required String url,
     Map<String, String>? headers,
   }) async {
-    final uri = Uri.parse(url);
+    final uri = Uri.parse("${ApiConstants.baseUrl}$url");
     final request = await client.deleteUrl(uri);
     request.build(header: headers);
     return request.getResponseBody();
@@ -17,7 +18,7 @@ class AppClient extends BaseClient {
     required String url,
     Map<String, String>? headers,
   }) async {
-    final uri = Uri.parse(url);
+    final uri = Uri.parse("${ApiConstants.baseUrl}$url");
     final request = await client.getUrl(uri);
     request.build(header: headers);
     logRequest(request);
@@ -30,7 +31,7 @@ class AppClient extends BaseClient {
     Map<String, String>? headers,
     Object? body,
   }) async {
-    final uri = Uri.parse(url);
+    final uri = Uri.parse("${ApiConstants.baseUrl}$url");
     final request = await client.postUrl(uri);
     request.build(header: headers, body: body);
     logRequest(request, body: body.toString());
@@ -43,7 +44,7 @@ class AppClient extends BaseClient {
     Map<String, String>? headers,
     Object? body,
   }) async {
-    final uri = Uri.parse(url);
+    final uri = Uri.parse("${ApiConstants.baseUrl}$url");
     final request = await client.putUrl(uri);
     request.build(header: headers, body: body);
     return request.getResponseBody();
