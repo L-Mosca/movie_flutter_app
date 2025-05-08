@@ -6,7 +6,7 @@ abstract interface class UserRepository {
 
   // Register
   Future<String> signUp({required RegisterBody body});
-  Future<void> login({required LoginBody body});
+  Future<String> login({required LoginBody body});
 
   // User Data
   Future<void> saveUser({required UserData user});

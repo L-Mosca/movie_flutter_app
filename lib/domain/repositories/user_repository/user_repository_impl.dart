@@ -20,8 +20,8 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<void> login({required LoginBody body}) async {
-    await Future.delayed(const Duration(seconds: 4));
+  Future<String> login({required LoginBody body}) async {
+    return await clientHelper.signIn(body: body);
   }
 
   @override
