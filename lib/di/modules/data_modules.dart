@@ -7,14 +7,17 @@ import 'package:movie_flutter_app/data/remote/helper/client_helper_impl.dart';
 
 class DataModules {
   static Future<void> setup(GetIt getIt) async {
-    // Client Helper
-    getIt.registerSingleton<AppClient>(AppClient());
-    getIt.registerSingleton<ClientHelper>(
-      ClientHelperImpl(client: getIt.get<AppClient>()),
-    );
-
     // Preferences Helper
     final preferencesHelper = await PreferencesHelperImpl.create();
     getIt.registerSingleton<PreferencesHelper>(preferencesHelper);
+
+    // Client Helper
+    getIt.registerSingleton<AppClient>(AppClient());
+    getIt.registerSingleton<ClientHelper>(
+      ClientHelperImpl(
+        client: getIt.get<AppClient>(),
+        preferencesHelper: getIt.get<PreferencesHelper>(),
+      ),
+    );
   }
 }
