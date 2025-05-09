@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               if (state.showShimmerLoading) HomeListLoading(),
-              if (state.showNextPageLoading) HomeNextPageLoading()
+              if (state.showNextPageLoading) HomeNextPageLoading(),
             ],
           ),
         ),
@@ -84,7 +84,11 @@ class HomePage extends StatelessWidget {
   }
 
   void _onMoviePressed(BuildContext context, int id) {
-    //Navigator.pushNamed(context, AppRouter.movieManageRoute, arguments: {});
+    Navigator.pushNamed(
+      context,
+      AppRouter.movieDetailRoute,
+      arguments: {AppRouter.movieDetailIdArgument: id},
+    );
   }
 
   void _onFavoritePressed(BuildContext context, int id) {

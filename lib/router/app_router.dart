@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:movie_flutter_app/router/routes/home/home_router.dart';
 import 'package:movie_flutter_app/router/routes/login/login_router.dart';
+import 'package:movie_flutter_app/router/routes/movie_detail/movie_detail_router.dart';
 import 'package:movie_flutter_app/router/routes/register/register_router.dart';
 import 'package:movie_flutter_app/router/routes/settings/settings_router.dart';
 import 'package:movie_flutter_app/router/routes/splash/splash_router.dart';
@@ -15,6 +16,10 @@ class AppRouter {
   static const registerRoute = "/register";
   static const loginRoute = "/login";
   static const settingsRoute = "/settings";
+  static const movieDetailRoute = "/movieDetail";
+
+  // Argument keys
+  static const movieDetailIdArgument = "movieId";
 
   static Route<dynamic>? onGenerateRoute(
     RouteSettings settings,
@@ -31,6 +36,11 @@ class AppRouter {
         return _buildPageWithAnimation(LoginRouter.page);
       case settingsRoute:
         return _buildPageWithAnimation(SettingsRouter.page);
+      case movieDetailRoute:
+        return _buildPageWithAnimation(
+          MovieDetailRouter.page(context, settings),
+          RouteAnimation.scale,
+        );
       default:
         return null;
     }

@@ -18,4 +18,5 @@ class AppIcons {
   static const String search = "assets/icons/ic_search.svg";
   static const String warning = "assets/icons/ic_warning.svg";
   static const String favorite = "assets/icons/ic_heart.svg";
+  static const String options = "assets/icons/ic_menu.svg";
 }

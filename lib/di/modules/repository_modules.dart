@@ -19,7 +19,9 @@ class RepositoryModules {
     );
 
     // Movie Repository
-    getIt.registerSingleton<MovieRepository>(MovieRepositoryImpl());
+    getIt.registerSingleton<MovieRepository>(
+      MovieRepositoryImpl(clientHelper: getIt.get<ClientHelper>()),
+    );
 
     // SettingsRepository
     getIt.registerSingleton<SettingsRepository>(

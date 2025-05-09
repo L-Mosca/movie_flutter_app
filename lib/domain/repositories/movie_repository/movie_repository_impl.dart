@@ -1,7 +1,13 @@
+import 'package:movie_flutter_app/data/remote/helper/client_helper.dart';
+import 'package:movie_flutter_app/domain/models/movie/movie_details.dart';
 import 'package:movie_flutter_app/domain/models/movie/movie_home_response.dart';
 import 'package:movie_flutter_app/domain/repositories/movie_repository/movie_repository.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
+  final ClientHelper clientHelper;
+
+  MovieRepositoryImpl({required this.clientHelper});
+
   @override
   Future<void> favoriteMovie({required int id}) async {}
 
@@ -36,4 +42,23 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<void> removeFavoriteMovie({required int id}) async {}
+
+  @override
+  Future<MovieDetails?> getMovieById({required int id}) async {
+    await Future.delayed(const Duration(seconds: 3));
+    return MovieDetails(
+      title: "Nome do Filme",
+      originalTitle: "Nome do Filme",
+      rating: "7.2/10",
+      duration: "1h22m",
+      director: "Nome do Diretor",
+      actors: "Ator 1, Ator 2, Ator 3, Ator 4, Ator 5, Ator 6, Ator 7, Ator 8",
+      synopsis: "Um texto muito longo para alongar o mock de uma resposta retornada da api para simular qual seria a sinopse de algum filme aleatório que foi retornado porque o usuário clicou em algum filme na lista anterior de filmes.\nDepois que a tela toda carregar (o que não vai demorar, pois esta resposta está mocada no software) o usuário poderá apreciar o belo design da tela desenvolvida por mim.\n\nUm texto muito longo para alongar o mock de uma resposta retornada da api para simular qual seria a sinopse de algum filme aleatório que foi retornado porque o usuário clicou em algum filme na lista anterior de filmes.\nDepois que a tela toda carregar (o que não vai demorar, pois esta resposta está mocada no software) o usuário poderá apreciar o belo design da tela desenvolvida por mim.\n\nUm texto muito longo para alongar o mock de uma resposta retornada da api para simular qual seria a sinopse de algum filme aleatório que foi retornado porque o usuário clicou em algum filme na lista anterior de filmes.\nDepois que a tela toda carregar (o que não vai demorar, pois esta resposta está mocada no software) o usuário poderá apreciar o belo design da tela desenvolvida por mim.\n\nUm texto muito longo para alongar o mock de uma resposta retornada da api para simular qual seria a sinopse de algum filme aleatório que foi retornado porque o usuário clicou em algum filme na lista anterior de filmes.\nDepois que a tela toda carregar (o que não vai demorar, pois esta resposta está mocada no software) o usuário poderá apreciar o belo design da tela desenvolvida por mim.\n\nUm texto muito longo para alongar o mock de uma resposta retornada da api para simular qual seria a sinopse de algum filme aleatório que foi retornado porque o usuário clicou em algum filme na lista anterior de filmes.\nDepois que a tela toda carregar (o que não vai demorar, pois esta resposta está mocada no software) o usuário poderá apreciar o belo design da tela desenvolvida por mim.",
+    );
+  }
+
+  @override
+  Future<void> deleteMovie({required int id}) async {
+    await Future.delayed(const Duration(seconds: 3));
+  }
 }
