@@ -18,11 +18,13 @@ class AppLocale {
       languageCode = json["languageCode"];
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic> {};
+    final data = <String, dynamic>{};
     data["country"] = country;
     data["languageCode"] = languageCode;
     return data;
   }
+
+  String getLanguageCode() => languageCode.substring(0, 2);
 }
 
 extension AppLocaleExtensions on BuildContext {
@@ -42,10 +44,13 @@ extension AppLocaleExtensions on BuildContext {
 
 extension LanguageCodeExtensions on String {
   String getLanguage(BuildContext context) {
-    switch(this) {
-      case AppConstants.portugueseCode : return context.strings.portuguese;
-      case AppConstants.englishCode : return context.strings.english;
-      default: return context.strings.portuguese;
+    switch (this) {
+      case AppConstants.portugueseCode:
+        return context.strings.portuguese;
+      case AppConstants.englishCode:
+        return context.strings.english;
+      default:
+        return context.strings.portuguese;
     }
   }
 }
