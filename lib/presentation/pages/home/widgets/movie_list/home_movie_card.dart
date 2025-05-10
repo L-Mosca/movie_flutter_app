@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_flutter_app/base/providers/color_token_provider.dart';
 import 'package:movie_flutter_app/domain/models/movie/movie_home_response.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_card.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/base_text.dart';
@@ -27,9 +26,7 @@ class HomeMovieCard extends StatelessWidget {
       child: BaseCard(
         elevation: 0.0,
         borderRadius: Dimensions.radiusSmall,
-        child: Stack(
-          children: [_image(), _shadow(context), _favoriteIcon(), _name()],
-        ),
+        child: Stack(children: [_image(), _favoriteIcon(), _name()]),
       ),
     );
   }
@@ -39,15 +36,6 @@ class HomeMovieCard extends StatelessWidget {
       child: BaseImageNetwork(
         imageUrl: movie.image,
         fit: BoxFit.cover,
-        borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
-      ),
-    );
-  }
-
-  Widget _shadow(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: context.colors.shadow,
         borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
       ),
     );

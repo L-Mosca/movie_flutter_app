@@ -56,5 +56,10 @@ class EnUs extends AppLocalization {
   @override String get fetchMovieError => "An error occurred while trying to fetch your movies. Please try again later";
   @override String get reload => "Reload";
 
+  // Movie Detail
+  @override String get duration => "Duration";
+  @override String get director => "Director";
+  @override String get trailer => "Trailer";
+  @override String get casting => "Cast";
 
 }

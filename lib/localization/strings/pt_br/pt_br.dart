@@ -55,4 +55,10 @@ class PtBr extends AppLocalization {
   @override String get anErrorOccurred => "Ocorreu um erro";
   @override String get fetchMovieError => "Ocorreu um erro ao tentar buscar pelos seus filmes, tente novamente mais tarde";
   @override String get reload => "Recarregar";
+
+  // Movie Detail
+  @override String get duration => "Duração";
+  @override String get director => "Diretor";
+  @override String get trailer => "Trailer";
+  @override String get casting => "Atores";
 }

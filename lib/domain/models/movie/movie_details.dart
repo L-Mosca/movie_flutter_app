@@ -1,4 +1,5 @@
 class MovieDetails {
+  String? image;
   String? title;
   String? originalTitle;
   String? rating;
@@ -10,6 +11,7 @@ class MovieDetails {
   bool? isFavorite;
 
   MovieDetails({
+    this.image,
     this.title,
     this.originalTitle,
     this.rating,
@@ -23,6 +25,6 @@ class MovieDetails {
 
   @override
   String toString() {
-    return 'MovieDetails{title: $title, originalTitle: $originalTitle, rating: $rating, duration: $duration, director: $director, trailerLink: $trailerLink, actors: $actors, synopsis: $synopsis, isFavorite: $isFavorite}';
+    return 'MovieDetails{image: $image, title: $title, originalTitle: $originalTitle, rating: $rating, duration: $duration, director: $director, trailerLink: $trailerLink, actors: $actors, synopsis: $synopsis, isFavorite: $isFavorite}';
   }
 }

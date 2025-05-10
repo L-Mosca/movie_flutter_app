@@ -4,6 +4,7 @@ import 'package:movie_flutter_app/presentation/base_widgets/base_page.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/bloc/movie_detail_bloc.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/bloc/movie_detail_event.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/bloc/movie_detail_state.dart';
+import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/content/movie_details_content.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/movie_detail_app_bar.dart';
 
 class MovieDetailPage extends StatelessWidget {
@@ -21,15 +22,19 @@ class MovieDetailPage extends StatelessWidget {
 
   Widget _builder(BuildContext context, MovieDetailState state) {
     return Scaffold(
-      appBar: MovieDetailAppBar(
-        isLoading: state.showShimmerLoading,
-        title: state.movie?.title ?? "",
-        isFavorite: state.movie?.isFavorite ?? false,
-        onBackPressed: () => Navigator.pop(context),
-        onFavoritePressed: () => _onFavoritePressed(context),
-        onOptionsPressed: () => _onOptionsPressed(context),
-      ),
-      body: SafeArea(child: Container()),
+      appBar: _buildAppBar(context, state),
+      body: SafeArea(child: MovieDetailsContent(movie: state.movie)),
+    );
+  }
+
+  MovieDetailAppBar _buildAppBar(BuildContext context, MovieDetailState state) {
+    return MovieDetailAppBar(
+      isLoading: state.showShimmerLoading,
+      title: state.movie?.title ?? "",
+      isFavorite: state.movie?.isFavorite ?? false,
+      onBackPressed: () => Navigator.pop(context),
+      onFavoritePressed: () => _onFavoritePressed(context),
+      onOptionsPressed: () => _onOptionsPressed(context),
     );
   }
 

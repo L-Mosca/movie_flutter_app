@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_flutter_app/base/providers/color_token_provider.dart';
 import 'package:movie_flutter_app/presentation/base_widgets/image/base_image_container.dart';
 import 'package:movie_flutter_app/utils/constants/colors.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
@@ -15,6 +16,7 @@ class BaseImageNetwork extends StatelessWidget {
     this.imageShape,
     this.fit,
     this.filterQuality,
+    this.enableShadow = true,
   });
 
   final String? imageUrl;
@@ -26,6 +28,7 @@ class BaseImageNetwork extends StatelessWidget {
   final BaseImageShape? imageShape;
   final BoxFit? fit;
   final FilterQuality? filterQuality;
+  final bool enableShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class BaseImageNetwork extends StatelessWidget {
       fit: fit ?? BoxFit.cover,
       filterQuality: filterQuality ?? FilterQuality.high,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) return child;
+        if (loadingProgress == null) return _shadow(context, child: child);
 
         return customLoading ?? _showDefaultLoading();
       },
@@ -71,4 +74,13 @@ class BaseImageNetwork extends StatelessWidget {
       ),
     ),
   );
+
+  Widget _shadow(BuildContext context, {required Widget child}) {
+    return Stack(
+      children: [
+        SizedBox.expand(child: child),
+        if (enableShadow) Container(color: context.colors.shadow),
+      ],
+    );
+  }
 }

@@ -53,4 +53,10 @@ abstract class AppLocalization {
   String get anErrorOccurred;
   String get fetchMovieError;
   String get reload;
+
+  // Movie Detail
+  String get duration;
+  String get director;
+  String get trailer;
+  String get casting;
 }
