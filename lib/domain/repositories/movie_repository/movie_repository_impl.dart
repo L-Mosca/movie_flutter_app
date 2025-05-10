@@ -9,9 +9,6 @@ class MovieRepositoryImpl implements MovieRepository {
   MovieRepositoryImpl({required this.clientHelper});
 
   @override
-  Future<void> favoriteMovie({required int id}) async {}
-
-  @override
   Future<MovieHomeResponse> getMovies({
     required int page,
     required int size,
@@ -41,7 +38,14 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<void> removeFavoriteMovie({required int id}) async {}
+  Future<void> favoriteMovie({required int id}) async {
+    await Future.delayed(const Duration(seconds: 4));
+  }
+
+  @override
+  Future<void> removeFavoriteMovie({required int id}) async {
+    await Future.delayed(const Duration(seconds: 4));
+  }
 
   @override
   Future<MovieDetails?> getMovieById({required int id}) async {

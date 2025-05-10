@@ -6,15 +6,29 @@ import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/conten
 import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/content/movie_detail_rating.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/content/movie_detail_synopsis.dart';
 import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/content/movie_detail_title.dart';
+import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/place_holders/movie_detail_error.dart';
+import 'package:movie_flutter_app/presentation/pages/movie_detail/widgets/place_holders/movie_detail_shimmer.dart';
 import 'package:movie_flutter_app/utils/constants/dimensions.dart';
 
 class MovieDetailsContent extends StatelessWidget {
-  const MovieDetailsContent({super.key, required this.movie});
+  const MovieDetailsContent({
+    super.key,
+    required this.movie,
+    required this.showShimmer,
+    required this.showError,
+    required this.onReloadPressed,
+  });
 
   final MovieDetails? movie;
+  final bool showShimmer;
+  final bool showError;
+  final void Function() onReloadPressed;
 
   @override
   Widget build(BuildContext context) {
+    if (showShimmer) return MovieDetailShimmer();
+    if (showError) return MovieDetailError(onPressed: onReloadPressed);
+
     return SingleChildScrollView(
       child: SizedBox(
         width: double.infinity,

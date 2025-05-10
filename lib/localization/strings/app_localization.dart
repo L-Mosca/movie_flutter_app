@@ -59,4 +59,5 @@ abstract class AppLocalization {
   String get director;
   String get trailer;
   String get casting;
+  String get movieDetailError;
 }
