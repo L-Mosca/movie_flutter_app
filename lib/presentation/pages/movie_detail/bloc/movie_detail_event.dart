@@ -12,16 +12,4 @@ class MovieDetailReloadEvent extends MovieDetailEvent {}
 
 class MovieDetailDeleteEvent extends MovieDetailEvent {}
 
-class MovieDetailShowDeleteDialog extends MovieDetailEvent {
-  final bool show;
-
-  MovieDetailShowDeleteDialog({required this.show});
-}
-
-class MovieDetailShowEditDialog extends MovieDetailEvent {
-  final bool show;
-
-  MovieDetailShowEditDialog({required this.show});
-}
-
 class MovieDetailResetListener extends MovieDetailEvent {}

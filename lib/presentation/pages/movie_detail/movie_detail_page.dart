@@ -47,8 +47,6 @@ class MovieDetailPage extends StatelessWidget {
           ),
         ),
         MovieDetailProgress(showLoading: state.showProgressLoading),
-        if (state.showDeleteDialog) _showDeleteDialog(context),
-        if (state.showEditDialog) _showEditDialog(context),
       ],
     );
   }
@@ -60,8 +58,8 @@ class MovieDetailPage extends StatelessWidget {
       isFavorite: state.movie?.isFavorite ?? false,
       onBackPressed: () => Navigator.pop(context),
       onFavoritePressed: () => _onFavoritePressed(context),
-      onEditPressed: () => _changeEditDialogVisibility(context, true),
-      onDeletePressed: () => _changeDeleteDialogVisibility(context, true),
+      onEditPressed: () => _showEditDialog(context),
+      onDeletePressed: () => _showDeleteDialog(context),
     );
   }
 
@@ -69,47 +67,36 @@ class MovieDetailPage extends StatelessWidget {
     context.read<MovieDetailBloc>().add(MovieDetailFavoriteEvent());
   }
 
-  Widget _showDeleteDialog(BuildContext context) {
-    return BaseAlertDialog(
-      title: context.strings.wouldLikeDelete,
-      onConfirmPressed: () => _onDeletePressed(context),
-      onDeclinePressed: () => _changeDeleteDialogVisibility(context, false),
-      onShadowPressed: () => _changeDeleteDialogVisibility(context, false),
-    );
+  void _showDeleteDialog(BuildContext context) {
+    showDialog(context: context, builder: (_) {
+      return BaseAlertDialog(
+        title: context.strings.wouldLikeDelete,
+        onConfirmPressed: () => _onDeletePressed(context),
+        onDeclinePressed: () => Navigator.pop(context),
+      );
+    });
   }
 
   void _onDeletePressed(BuildContext context) {
-    context.read<MovieDetailBloc>().add(
-      MovieDetailShowDeleteDialog(show: false),
-    );
+    Navigator.pop(context);
     context.read<MovieDetailBloc>().add(MovieDetailDeleteEvent());
   }
 
-  Widget _showEditDialog(BuildContext context) {
-    return BaseAlertDialog(
-      title: context.strings.wouldLikeEdit,
-      onConfirmPressed: () => _onEditPressed(context),
-      onDeclinePressed: () => _changeEditDialogVisibility(context, false),
-      onShadowPressed: () => _changeEditDialogVisibility(context, false),
-    );
+  void _showEditDialog(BuildContext context) {
+    showDialog(context: context, builder: (_) {
+      return BaseAlertDialog(
+        title: context.strings.wouldLikeEdit,
+        onConfirmPressed: () => _onEditPressed(context),
+        onDeclinePressed: () => Navigator.pop(context),
+      );
+    });
   }
 
   void _onEditPressed(BuildContext context) {
-    context.read<MovieDetailBloc>().add(MovieDetailShowEditDialog(show: false));
     // TODO go to movie manage page
   }
 
   void _onReloadPressed(BuildContext context) {
     context.read<MovieDetailBloc>().add(MovieDetailReloadEvent());
-  }
-
-  void _changeDeleteDialogVisibility(BuildContext context, bool show) {
-    context.read<MovieDetailBloc>().add(
-      MovieDetailShowDeleteDialog(show: show),
-    );
-  }
-
-  void _changeEditDialogVisibility(BuildContext context, bool show) {
-    context.read<MovieDetailBloc>().add(MovieDetailShowEditDialog(show: show));
   }
 }
