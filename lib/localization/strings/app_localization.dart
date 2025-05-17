@@ -60,4 +60,10 @@ abstract class AppLocalization {
   String get trailer;
   String get casting;
   String get movieDetailError;
+  String get edit;
+  String get delete;
+  String get wouldLikeDelete;
+  String get wouldLikeEdit;
+  String get no;
+  String get yes;
 }

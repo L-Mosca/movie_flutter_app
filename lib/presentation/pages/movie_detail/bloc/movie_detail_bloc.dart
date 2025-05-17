@@ -13,6 +13,8 @@ class MovieDetailBloc extends BaseBloc<MovieDetailEvent, MovieDetailState> {
     on<MovieDetailFavoriteEvent>(_setFavorite);
     on<MovieDetailReloadEvent>(_reload);
     on<MovieDetailDeleteEvent>(_delete);
+    on<MovieDetailShowDeleteDialog>(_showDeleteDialog);
+    on<MovieDetailShowEditDialog>(_showEditDialog);
     on<MovieDetailResetListener>(_resetListener);
   }
 
@@ -78,6 +80,20 @@ class MovieDetailBloc extends BaseBloc<MovieDetailEvent, MovieDetailState> {
       loadingStatus: (isLoading) => emitter(state.showProgress(isLoading)),
       exceptionHandler: (e) => emitter(state.showError(true)),
     );
+  }
+
+  void _showDeleteDialog(
+    MovieDetailShowDeleteDialog event,
+    Emitter<MovieDetailState> emitter,
+  ) async {
+    emitter(state.changeDeleteDialogVisibility(event.show));
+  }
+
+  void _showEditDialog(
+    MovieDetailShowEditDialog event,
+    Emitter<MovieDetailState> emitter,
+  ) async {
+    emitter(state.changeEditDialogVisibility(event.show));
   }
 
   void _resetListener(

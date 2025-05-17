@@ -26,7 +26,11 @@ class MovieDetailCast extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [_director(context), _trailer(context), _cast(context)],
+      children: [
+        if (hasDirector) _director(context),
+        if (hasTrailer) _trailer(context),
+        if (hasCast) _cast(context),
+      ],
     );
   }
 

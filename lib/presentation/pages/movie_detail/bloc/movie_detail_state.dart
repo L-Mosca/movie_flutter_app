@@ -11,6 +11,8 @@ class MovieDetailState implements Copyable<MovieDetailState> {
     this.showShimmerLoading = false,
     this.showErrorPlaceHolder = false,
     this.showProgressLoading = false,
+    this.showDeleteDialog = false,
+    this.showEditDialog = false,
   });
 
   final MovieDetailListener listener;
@@ -19,6 +21,8 @@ class MovieDetailState implements Copyable<MovieDetailState> {
   final bool showShimmerLoading;
   final bool showErrorPlaceHolder;
   final bool showProgressLoading;
+  final bool showDeleteDialog;
+  final bool showEditDialog;
 
   @override
   MovieDetailState copy() {
@@ -29,6 +33,8 @@ class MovieDetailState implements Copyable<MovieDetailState> {
       showShimmerLoading: showShimmerLoading,
       showErrorPlaceHolder: showErrorPlaceHolder,
       showProgressLoading: showProgressLoading,
+      showDeleteDialog: showDeleteDialog,
+      showEditDialog: showEditDialog,
     );
   }
 
@@ -40,6 +46,8 @@ class MovieDetailState implements Copyable<MovieDetailState> {
     bool? showShimmerLoading,
     bool? showErrorPlaceHolder,
     bool? showProgressLoading,
+    bool? showDeleteDialog,
+    bool? showEditDialog,
   }) {
     return MovieDetailState(
       listener: listener ?? this.listener,
@@ -48,6 +56,8 @@ class MovieDetailState implements Copyable<MovieDetailState> {
       showShimmerLoading: showShimmerLoading ?? this.showShimmerLoading,
       showErrorPlaceHolder: showErrorPlaceHolder ?? this.showErrorPlaceHolder,
       showProgressLoading: showProgressLoading ?? this.showProgressLoading,
+      showDeleteDialog: showDeleteDialog ?? this.showDeleteDialog,
+      showEditDialog: showEditDialog ?? this.showEditDialog,
     );
   }
 
@@ -81,4 +91,14 @@ class MovieDetailState implements Copyable<MovieDetailState> {
 
   MovieDetailState get resetListener =>
       copyWith(listener: MovieDetailListener.nothing);
+
+  MovieDetailState changeDeleteDialogVisibility(bool show) => copyWith(
+    showEditDialog: false,
+    showDeleteDialog: show,
+  );
+
+  MovieDetailState changeEditDialogVisibility(bool show) => copyWith(
+    showEditDialog: show,
+    showDeleteDialog: false,
+  );
 }

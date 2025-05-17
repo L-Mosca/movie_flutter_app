@@ -62,4 +62,10 @@ class PtBr extends AppLocalization {
   @override String get trailer => "Trailer";
   @override String get casting => "Atores";
   @override String get movieDetailError => "Ocorreu um erro ao tentar buscar os detailhes do filme";
+  @override String get edit => "Editar";
+  @override String get delete => "Excluir";
+  @override String get wouldLikeDelete => "Deseja excluir o filme?";
+  @override String get wouldLikeEdit => "Deseja editar o filme?";
+  @override String get no => "Não";
+  @override String get yes => "Sim";
 }
