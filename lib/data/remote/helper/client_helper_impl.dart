@@ -5,6 +5,7 @@ import 'package:movie_flutter_app/data/local/shared_preferences/preferences_help
 import 'package:movie_flutter_app/data/remote/client/api_constants.dart';
 import 'package:movie_flutter_app/data/remote/client/app_client.dart';
 import 'package:movie_flutter_app/data/remote/helper/client_helper.dart';
+import 'package:movie_flutter_app/domain/models/movie/movie_details.dart';
 import 'package:movie_flutter_app/domain/models/user/login_body.dart';
 import 'package:movie_flutter_app/domain/models/user/register_body.dart';
 
@@ -36,6 +37,16 @@ class ClientHelperImpl implements ClientHelper {
     );
     final data = RegisterResponseDto.fromJson(response);
     return data.accessToken!;
+  }
+
+  @override
+  Future<MovieDetails?> getMovieById({required int id}) async {
+    final response = await client.get(
+      url: "${ApiConstants.getMovie}$id",
+      headers: await _buildDefaultHeader(),
+    );
+
+    return MovieDetails();
   }
 
   Future<Map<String, String>> _buildDefaultHeader() async {

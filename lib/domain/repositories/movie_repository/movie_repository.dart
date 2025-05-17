@@ -1,3 +1,4 @@
+import 'package:movie_flutter_app/domain/models/movie/movie_details.dart';
 import 'package:movie_flutter_app/domain/models/movie/movie_home_response.dart';
 
 abstract interface class MovieRepository {
@@ -10,4 +11,7 @@ abstract interface class MovieRepository {
   Future<void> favoriteMovie({required int id});
 
   Future<void> removeFavoriteMovie({required int id});
+
+  Future<MovieDetails?> getMovieById({required int id});
+  Future<void> deleteMovie({required int id});
 }
