@@ -17,6 +17,7 @@ class BaseImageNetwork extends StatelessWidget {
     this.fit,
     this.filterQuality,
     this.enableShadow = true,
+    this.hasError,
   });
 
   final String? imageUrl;
@@ -29,6 +30,7 @@ class BaseImageNetwork extends StatelessWidget {
   final BoxFit? fit;
   final FilterQuality? filterQuality;
   final bool enableShadow;
+  final void Function(bool)? hasError;
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +54,11 @@ class BaseImageNetwork extends StatelessWidget {
       filterQuality: filterQuality ?? FilterQuality.high,
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress == null) return _shadow(context, child: child);
-
+        if (hasError != null) hasError!(false);
         return customLoading ?? _showDefaultLoading();
       },
       errorBuilder: (context, error, stackTrace) {
+        if (hasError != null) hasError!(true);
         if (errorPlaceHolder != null) {
           return errorPlaceHolder!;
         }

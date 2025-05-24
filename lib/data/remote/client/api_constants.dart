@@ -9,5 +9,6 @@ class ApiConstants {
   static const String signUpUrl = "/user/signup";
   static const String signInUrl = "/auth/signin";
 
-  static const String getMovie = "/movie/get/";
+  static const String getMovie = "/movie/";
+  static const String getMovieList = "/movie";
 }

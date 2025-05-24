@@ -18,7 +18,7 @@ class MovieHomeResponse {
 }
 
 class MovieBasicData {
-  int? id;
+  String? id;
   String? name;
   String? image;
   bool? isFavorite;

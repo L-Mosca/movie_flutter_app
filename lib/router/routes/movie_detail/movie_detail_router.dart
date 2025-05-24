@@ -14,7 +14,7 @@ class MovieDetailRouter {
       BlocProvider(
         create: (_) {
           final args = routeSettings.arguments as Map<String, dynamic>?;
-          final movieId = args?[AppRouter.movieDetailIdArgument] as int? ?? -1;
+          final movieId = args?[AppRouter.movieDetailIdArgument] as String? ?? "";
 
           return MovieDetailBloc(
             movieRepository: injector.get<MovieRepository>(),

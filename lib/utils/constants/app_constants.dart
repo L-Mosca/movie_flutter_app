@@ -26,4 +26,7 @@ class AppConstants {
   static const String privacyPolicies = "https://pub.dev/packages/url_launcher/example";
   static const String portugueseCode = "pt";
   static const String englishCode = "en";
+
+  // Movie Constants
+  static const int moviePageSize = 10;
 }

@@ -6,7 +6,7 @@ enum MovieDetailListener { nothing, deleteSuccess }
 class MovieDetailState implements Copyable<MovieDetailState> {
   const MovieDetailState({
     this.listener = MovieDetailListener.nothing,
-    this.movieId = -1,
+    this.movieId = "",
     this.movie,
     this.showShimmerLoading = false,
     this.showErrorPlaceHolder = false,
@@ -14,7 +14,7 @@ class MovieDetailState implements Copyable<MovieDetailState> {
   });
 
   final MovieDetailListener listener;
-  final int movieId;
+  final String movieId;
   final MovieDetails? movie;
   final bool showShimmerLoading;
   final bool showErrorPlaceHolder;
@@ -35,7 +35,7 @@ class MovieDetailState implements Copyable<MovieDetailState> {
   @override
   MovieDetailState copyWith({
     MovieDetailListener? listener,
-    int? movieId,
+    String? movieId,
     MovieDetails? movie,
     bool? showShimmerLoading,
     bool? showErrorPlaceHolder,

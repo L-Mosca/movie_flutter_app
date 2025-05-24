@@ -25,8 +25,8 @@ class HomeMovieList extends StatefulWidget {
   final bool showEmptyPlaceHolder;
   final String filter;
   final void Function() onReloadPressed;
-  final void Function(int) onMoviePressed;
-  final void Function(int) onFavoritePressed;
+  final void Function(String) onMoviePressed;
+  final void Function(String) onFavoritePressed;
   final void Function() callNextPage;
 
   @override
@@ -75,8 +75,8 @@ class _HomeMovieListState extends State<HomeMovieList> {
             final data = widget.list[index];
             return HomeMovieCard(
               movie: data,
-              onFavoritePressed: () => widget.onFavoritePressed(data.id ?? -1),
-              onMoviePressed: () => widget.onMoviePressed(data.id ?? -1),
+              onFavoritePressed: () => widget.onFavoritePressed(data.id ?? ""),
+              onMoviePressed: () => widget.onMoviePressed(data.id ?? ""),
             );
           },
         ),
