@@ -15,7 +15,7 @@ class HomeUpdateFilterEvent extends HomeEvent {
 }
 
 class HomeFavoriteEvent extends HomeEvent {
-  final int id;
+  final String id;
 
   HomeFavoriteEvent({required this.id});
 }

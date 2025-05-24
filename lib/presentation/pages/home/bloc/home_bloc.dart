@@ -95,14 +95,14 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
         );
 
         final newList = List<MovieBasicData>.from(state.list);
-        newList.addAll(data.list ?? []);
+        newList.addAll(data?.list ?? []);
 
         if (newList.isEmpty) {
           emitter(state.showEmptyList);
           return;
         }
 
-        emitter(state.updateList(newList, page, data.totalPages ?? 1));
+        emitter(state.updateList(newList, page, data?.totalPages ?? 1));
       },
       exceptionHandler: (exception) => emitter(state.showError),
       loadingStatus: (loading) => emitter(state.isLoading(loading, page)),

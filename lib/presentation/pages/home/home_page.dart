@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
     context.read<HomeBloc>().add(HomeFilterEvent());
   }
 
-  void _onMoviePressed(BuildContext context, int id) {
+  void _onMoviePressed(BuildContext context, String id) {
     Navigator.pushNamed(
       context,
       AppRouter.movieDetailRoute,
@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _onFavoritePressed(BuildContext context, int id) {
+  void _onFavoritePressed(BuildContext context, String id) {
     context.read<HomeBloc>().add(HomeFavoriteEvent(id: id));
   }
 

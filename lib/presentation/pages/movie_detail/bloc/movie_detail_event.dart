@@ -1,7 +1,7 @@
 abstract class MovieDetailEvent {}
 
 class MovieDetailInitEvent extends MovieDetailEvent {
-  final int movieId;
+  final String movieId;
 
   MovieDetailInitEvent({required this.movieId});
 }
