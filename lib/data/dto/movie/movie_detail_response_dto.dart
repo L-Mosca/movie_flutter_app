@@ -5,7 +5,7 @@ class MovieDetailResponseDto {
   String? name;
   String? originalName;
   String? date;
-  int? rating;
+  double? rating;
   String? language;
   List<String>? country;
   List<String>? writers;

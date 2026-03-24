@@ -28,7 +28,7 @@ class MovieBasicDataDto {
   String? id;
   String? name;
   String? date;
-  int? rating;
+  double? rating;
   String? image;
 
   MovieBasicDataDto({this.id, this.name, this.date, this.rating, this.image});
